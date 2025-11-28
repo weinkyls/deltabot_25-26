@@ -13,7 +13,7 @@ they look like these:
 
 ```
 console=display
-verlay_prefix=
+overlay_prefix=
 overlays=rk3588-pwm14-m0 rk3588-pwm8-m0 rk3588-uart2-m0
 ```
 

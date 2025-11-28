@@ -24,6 +24,7 @@ int ServoMotorSetting::SpeedToHighTimeLeft(float speed) // speed range from -10 
 
 int ServoMotorSetting::SpeedToHighTimeRight(float speed) // speed range from -10 to 10, 0 is stop
 {
+    speed = -speed;
     if (speed > 10)
         speed = 10;
     if (speed < -10)
