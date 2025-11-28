@@ -1,5 +1,5 @@
 #include "ServoMotorSetting.h"
-#include <thread>
+#include "stdio.h"
 // This program sets the speed of two servo motors based on command line arguments.
 
 int main(int argc, char *argv[])
@@ -10,8 +10,11 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    ServoMotorSetting servo_right(0, 20, 1.52, 1); // 1.52ms
-    ServoMotorSetting servo_left(0, 20, 1.52, 2); // 1.52ms
+    const int PWM_servo_right = 1;
+    const int PWM_servo_left = 2;
+
+    ServoMotorSetting servo_right(0, 20, 1.52, PWM_servo_right); // 1.52ms
+    ServoMotorSetting servo_left(0, 20, 1.52, PWM_servo_left); // 1.52ms
 
     int left_speed = std::atoi(argv[1]);
     int right_speed = std::atoi(argv[2]);
@@ -21,10 +24,12 @@ int main(int argc, char *argv[])
     servo_left.ChangeLeftSpeed(left_speed);
     servo_right.ChangeRightSpeed(right_speed);
 
-    while (1)
-    {
-        std::this_thread::sleep_for(std::chrono::milliseconds(200));
-    }
+    std::cout << "Press any key to stop" << std::endl;
+
+    getchar();
+
+    servo_left.ChangeLeftSpeed(0);
+    servo_right.ChangeRightSpeed(0);
 
     return 0;
 }
