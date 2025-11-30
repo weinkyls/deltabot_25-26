@@ -2,14 +2,12 @@
 #define DELTABOT_H
 
 #include "ServoMotorSetting.h"
-#include "CaptureCameraFeed.h"
 #include <thread>
 
 class DeltaBot
 {
 public:
     DeltaBot();
-    DeltaBot(CaptureCameraFeed& external_camera);
 
     /**
      * Move the robot forward.
@@ -38,18 +36,6 @@ public:
     void SetMotorSpeed(float left_speed,float right_speed);
 
     /**
-     * Start the camera feed in a separate thread.
-     * This allows the robot to capture video feed while performing other operations.
-     */
-    void StartCamera();
-    
-    /**
-     * Stop the camera feed and join the camera thread.
-     * This ensures that the camera resources are released properly.
-     */
-    void StopCamera();
-
-    /**
      * Stop the robot.
      */
     void Stop();
@@ -59,11 +45,6 @@ private:
     ServoMotorSetting leftMotor;
     ServoMotorSetting rightMotor;
 
-    // Camera feed capture
-    CaptureCameraFeed* camera;
-    std::unique_ptr<CaptureCameraFeed> internal_camera_;
-    std::thread camera_thread;
-
     // Constants for servo motor settings
     static constexpr int leftChannel = 0;
     static constexpr int rightChannel = 0;
@@ -71,12 +52,6 @@ private:
     static constexpr float high_time = 1.52f;
     static constexpr int leftChipNo = 8;
     static constexpr int rightChipNo = 14;
-    
-    // Camera parameters
-    static constexpr int device_index = 11;
-    static constexpr int capture_width = 1280;
-    static constexpr int capture_height = 720;
-    static constexpr int capture_fps = 30;
 };
 
 #endif
