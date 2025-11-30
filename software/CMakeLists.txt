@@ -28,9 +28,3 @@ add_executable(TestSpeedChange
     ${COMMON_SOURCES}
     ${CLDL_SOURCES}
 )
-
-add_executable(TestBotMotion
-    TestBotMotion.cpp
-    ${COMMON_SOURCES}
-    ${CLDL_SOURCES}
-)
