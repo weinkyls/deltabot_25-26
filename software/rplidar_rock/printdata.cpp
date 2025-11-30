@@ -8,8 +8,6 @@
 class DataInterface : public C1Lidar::DataInterface {
 public:
 	void newScanAvail(C1LidarData (&data)[C1Lidar::nDistance]) {
-		// Debugging log to see if the function is triggered
-		std::cerr << "newScanAvail triggered!" << std::endl;
 		for (C1LidarData &d : data) {
 			if (d.valid) {  // Only process valid data
 			    std::cout << d.x << "\t" << d.y 
@@ -17,7 +15,7 @@ public:
 				      << "\t" << d.signal_strength << std::endl;
 			}
 		}
-		std::cerr << ".";  // Log that data was received and saved
+		std::cerr << ".";  // Log that data was received
 	}
 };
 
@@ -37,9 +35,9 @@ int main(int, char **) {
         return 1;
     }
 
-    // Keep the program running while scanning (waiting for new data)
-    std::cerr << "Waiting for data..." << std::endl;
-    std::this_thread::sleep_for(std::chrono::seconds(10));  // Allow time for scanning
+    // waiting for a keypress
+    getchar();
+    
     std::cerr << "\nStopped cleanly." << std::endl;
     lidar.stop();  // Stop the scanning and motor
     return 0;
