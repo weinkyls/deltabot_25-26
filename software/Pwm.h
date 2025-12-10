@@ -91,11 +91,13 @@ private:
     /**
      * @brief Enable PWM output
      */
-    void enable() const
+    int enable() const
     {
-        int r = WriteSYS(pwmpath + "/enable", 1);
-        cout << "[DEBUG] enable() write to " << pwmpath + "/enable" << " result = " << r << endl;
+        return WriteSYS(pwmpath + "/enable", 1);
     }
+
+    static constexpr int export_attempts = 50;
+    static constexpr int retry_delay_us = 100000;
 };
 
 #endif
