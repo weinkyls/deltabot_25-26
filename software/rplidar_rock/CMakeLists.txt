@@ -42,3 +42,18 @@ target_link_libraries(c1lidarrpi Threads::Threads rt)
 
 add_executable(printdata printdata.cpp)
 target_link_libraries(printdata c1lidarrpi Threads::Threads)
+
+install(TARGETS c1lidarrpi EXPORT c1lidarrpi_targets
+  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+  INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+  )
+
+install(DIRECTORY rplidarsdk/ DESTINATION include/rplidarsdk FILES_MATCHING PATTERN "*.h")
+
+install(EXPORT c1lidarrpi_targets
+  DESTINATION lib/cmake/C1lidarRPI
+  FILE C1lidarRPIConfig.cmake
+)
