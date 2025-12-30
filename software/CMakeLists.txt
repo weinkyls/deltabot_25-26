@@ -9,7 +9,9 @@ set(CMAKE_BUILD_TYPE Debug)
 find_package(Threads REQUIRED)
 find_package(OpenCL REQUIRED)
 
-add_subdirectory(rplidar_rock)
+# no longer needed as it's now a library
+# https://github.com/berndporr/c1lidar
+# add_subdirectory(rplidar_rock)
 
 set(COMMON_SOURCES
     Pwm.cpp
