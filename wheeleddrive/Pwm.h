@@ -9,8 +9,6 @@
 
 using namespace std;
 
-#define DutyCycle 20000000 // The duty cycle for servo motor is always 20000000ns
-
 /**
  * @brief PWM control class, based on the sysfs interface to control the PWM output on the Rock 5B
  *
@@ -27,33 +25,32 @@ public:
      * @param low_time Low time of the signal of one period
      * @param high_time High time of the signal of one period
      * @param chip PWM chip number
-     * @return int 0 if success, <0 if failed
+     * @return int >0 if success, otherwise failed
      */
-    int StartPWM(int channel, float low_time, float high_time, int chip);
+    int start(int channel, float low_time, float high_time, int chip);
 
     /**
      * @brief Set duty cycle in nanoseconds
      */
-    inline int SetDutyCycleNS(int ns) const
+    inline int setDutyCycleNS(int ns) const
     {
-        const int r = WriteSYS(pwmpath + "/duty_cycle", ns);
-        return r;
+        return writeSYS(pwmpath + "/duty_cycle", ns);
     }
 
     /**
      * @brief Set PWM period in nanoseconds
      */
-    void SetPeriod(int ns) const
+    inline int setPeriod(int ns) const
     {
-        WriteSYS(pwmpath + "/period", ns);
+        return writeSYS(pwmpath + "/period", ns);
     }
 
     /**
      * @brief Disable PWM output
      */
-    void disable() const
+    inline int disable() const
     {
-        WriteSYS(pwmpath + "/enable", 0);
+        return writeSYS(pwmpath + "/enable", 0);
     }
 
     ~PWM()
@@ -71,11 +68,12 @@ private:
     /**
      * @brief Write an integer value to a sysfs file
      */
-    inline int WriteSYS(std::string filename, int value) const
+    inline int writeSYS(std::string filename, int value) const
     {
         FILE *const fp = fopen(filename.c_str(), "w");
         if (NULL == fp)
         {
+	    std::cerr << "Could not write to: " << filename << std::endl;
             return -1;
         }
         const int r = fprintf(fp, "%d", value);
@@ -83,7 +81,7 @@ private:
         return r;
     }
 
-    int CalculateFre(float low_time, float high_time)
+    int calculateFre(float low_time, float high_time)
     {
         return (low_time + high_time) * 1000000;
     }
@@ -93,11 +91,12 @@ private:
      */
     int enable() const
     {
-        return WriteSYS(pwmpath + "/enable", 1);
+        return writeSYS(pwmpath + "/enable", 1);
     }
 
-    static constexpr int export_attempts = 50;
+    static constexpr int export_attempts = 10;
     static constexpr int retry_delay_us = 100000;
+    static constexpr int DefaultDutyCycle = 20000000;
 };
 
 #endif

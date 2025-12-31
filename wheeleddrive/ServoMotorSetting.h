@@ -3,8 +3,6 @@
 #include <iostream>
 #include "Pwm.h"
 
-#define INVERSEDUTY 20000000
-
 class ServoMotorSetting
 {
 public:
@@ -12,11 +10,9 @@ public:
      * ServoMotorSetting 
      * 
      * @param  {int} channel     : The GPIO pin number for the motor
-     * @param  {float} low_time  : The low time duration for the PWM signal
-     * @param  {float} high_time : The high time duration for the PWM signal
      * @param  {int} chipNo      : The chip number for the motor
      */
-    ServoMotorSetting(int channel, float low_time, float high_time, int chipNo);
+    int start(int channel, int chipNo);
 
     ~ServoMotorSetting();
 
@@ -24,23 +20,25 @@ public:
      * Change the speed of the motor.
      * @param  {float} speed : The speed to set for the motor.
      */
-    void ChangeRightSpeed(float speed);
-    void ChangeLeftSpeed(float speed);
+    int setSpeed(float speed);
     
     /**
-     * Stop the motor.
+     * Switch off pwm
      */
-    void StopMotor();
+    int stop();
 
 private:
-    PWM pwm; // Assuming PWM is a class that handles PWM operations
+    PWM pwm; // Class that handles PWM operations
     /**
      * Convert speed to high time for PWM signal.
      * @param  {float} speed : The speed to convert.
      * @return {int}         : The high time duration for the PWM signal.
      */
-    int SpeedToHighTimeLeft(float speed);
-    int SpeedToHighTimeRight(float speed);
+    int speedToHighTime(float speed);
+
+    static constexpr float low_time = 20.0f;
+    static constexpr float high_time = 1.52f;
+    static constexpr int INVERSEDUTY = 20000000;
 };
 
 #endif
