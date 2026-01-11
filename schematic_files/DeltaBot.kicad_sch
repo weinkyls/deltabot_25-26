@@ -6052,7 +6052,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "deltabot:CP_Radial_D12.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:CP_Radial_D12.5mm_P5.00mm"
 			(at 54.3052 71.12 0)
 			(effects
 				(font
