@@ -1,3 +1,5 @@
+#include camera.h
+
 enum class PixelFormat {
     NV12,
     YUYV,
