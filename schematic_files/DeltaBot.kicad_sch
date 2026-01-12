@@ -2930,16 +2930,6 @@
 	)
 	(wire
 		(pts
-			(xy 168.91 41.91) (xy 180.34 41.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2df76cd0-5d47-43eb-86a8-abd53c986e5b")
-	)
-	(wire
-		(pts
 			(xy 60.96 118.11) (xy 64.77 118.11)
 		)
 		(stroke
@@ -3410,16 +3400,6 @@
 	)
 	(wire
 		(pts
-			(xy 168.91 44.45) (xy 180.34 44.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d52412f7-6063-4a6c-b27a-383dbd026bd6")
-	)
-	(wire
-		(pts
 			(xy 105.41 82.55) (xy 107.95 82.55)
 		)
 		(stroke
@@ -3560,7 +3540,7 @@
 	)
 	(global_label "LIDAR_RX"
 		(shape input)
-		(at 180.34 41.91 0)
+		(at 168.91 44.45 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3569,7 +3549,7 @@
 		)
 		(uuid "901b16c1-587d-4aec-9a04-a15696508298")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 180.34 41.91 0)
+			(at 168.91 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3580,7 +3560,7 @@
 	)
 	(global_label "LIDAR_TX"
 		(shape input)
-		(at 180.34 44.45 0)
+		(at 168.91 41.91 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3589,7 +3569,7 @@
 		)
 		(uuid "99056e4a-3a1c-41d2-83a3-be428a5558a4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 180.34 44.45 0)
+			(at 168.91 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)

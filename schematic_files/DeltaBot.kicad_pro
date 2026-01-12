@@ -197,8 +197,10 @@
       ],
       "track_widths": [
         0.0,
+        0.0,
         0.5,
         1.0,
+        1.5,
         2.0,
         2.5
       ],
@@ -504,7 +506,7 @@
         "priority": 2147483647,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.5,
-        "via_diameter": 2.5,
+        "via_diameter": 2.0,
         "via_drill": 1.0,
         "wire_width": 6
       }
@@ -521,7 +523,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "DeltaBot.net",
-      "plot": "../../pcb svg/new schem & pcb/",
+      "plot": "gerber/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
