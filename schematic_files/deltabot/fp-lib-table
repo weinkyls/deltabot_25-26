@@ -1,4 +1,0 @@
-(fp_lib_table
-  (version 7)
-  (lib (name "deltabot")(type "KiCad")(uri "${KIPRJMOD}/deltabot.pretty")(options "")(descr ""))
-)
