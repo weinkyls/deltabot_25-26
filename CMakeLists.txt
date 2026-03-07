@@ -15,29 +15,20 @@ target_include_directories(project_git PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}/include
   ${CMAKE_CURRENT_LIST_DIR}/lib/libcamera2opencv
   ${CMAKE_CURRENT_LIST_DIR}/lib/c1lidar
-  ${CMAKE_CURRENT_LIST_DIR}/lib/wheeleddrive 
-  )
-
-set(LIBSRC
-  a1lidarrpi.cpp
-  rplidarsdk/rplidar_driver.cpp
-  rplidarsdk/arch/linux/net_socket.cpp
-  rplidarsdk/arch/linux/timer.cpp
-  rplidarsdk/arch/linux/net_serial.cpp
-  rplidarsdk/hal/thread.cpp
+  ${CMAKE_CURRENT_LIST_DIR}/lib/wheelspeeds
 )
 
-add_library(a1lidarrpi STATIC ${LIBSRC})
+add_library(motors STATIC lib/wheelspeeds/Pwm.cpp)
+add_library(c1lidar STATIC lib/c1lidar/c1lidarrpi.cpp)
+add_library(camera_callback STATIC lib/libcamera2opencv/libcamera2opencv.cpp)
 
-set_target_properties(a1lidarrpi PROPERTIES
+set_target_properties(stereo_camera PROPERTIES
   POSITION_INDEPENDENT_CODE TRUE
-  PUBLIC_HEADER a1lidarrpi.h)
-
-target_link_libraries(a1lidarrpi Threads::Threads rt)
+  )
 
 # first argument is what the exe will be called, the target
 add_executable(stereo_camera src/stereo_camera.cpp)
-target_link_libraries(stereo_camera PRIVATE cam2opencv PkgConfig::LIBCAMERA)
+target_link_libraries(stereo_camera PRIVATE cam2opencv PkgConfig::LIBCAMERA camera_callback)
 
 # he was using target based cmake
 # add_executable(printRPM printRPM.cpp)
