@@ -10,7 +10,13 @@ set(CMAKE_CXX_STANDARD 11)
 
 find_package(Threads REQUIRED)
 
-include_directories(rplidarsdk rplidarsdk/src)
+# this is for finding path for header files and non-compiled libraries
+target_include_directories(project_git PRIVATE
+  ${CMAKE_CURRENT_LIST_DIR}/include
+  ${CMAKE_CURRENT_LIST_DIR}/lib/libcamera2opencv
+  ${CMAKE_CURRENT_LIST_DIR}/lib/c1lidar
+  ${CMAKE_CURRENT_LIST_DIR}/lib/wheeleddrive 
+  )
 
 set(LIBSRC
   a1lidarrpi.cpp
@@ -29,11 +35,10 @@ set_target_properties(a1lidarrpi PROPERTIES
 
 target_link_libraries(a1lidarrpi Threads::Threads rt)
 
-add_executable(printdata printdata.cpp)
-target_link_libraries(printdata a1lidarrpi Threads::Threads)
+# first argument is what the exe will be called, the target
+add_executable(stereo_camera src/stereo_camera.cpp)
+target_link_libraries(stereo_camera PRIVATE cam2opencv PkgConfig::LIBCAMERA)
 
-add_executable(printRPM printRPM.cpp)
-target_link_libraries(printRPM a1lidarrpi Threads::Threads)
-
-add_executable(pwm pwm.cpp)
-target_link_libraries(pwm a1lidarrpi Threads::Threads)
+# he was using target based cmake
+# add_executable(printRPM printRPM.cpp)
+# target_link_libraries(printRPM a1lidarrpi Threads::Threads)
