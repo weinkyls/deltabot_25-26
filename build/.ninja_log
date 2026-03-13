@@ -21,10 +21,11 @@
 2	1106	1773286153471968256	lib/c1lidar/CMakeFiles/c1lidarrpi.dir/rplidarsdk/sdk/src/sl_lidar_driver.cpp.o	ba0cb2881fc50726
 1106	1162	1773286154574916793	lib/c1lidar/libc1lidarrpi.a	f0a16db7c47f87d7
 1162	1226	1773286154630916473	lib/c1lidar/lidar_print_data	f10e959566c50fc
-14	1807	1773286153482923042	CMakeFiles/stereo_camera.dir/src/stereo_camera.cpp.o	7423d059832e4cb3
+4	1338	1773286208968600920	CMakeFiles/stereo_camera.dir/src/stereo_camera.cpp.o	7423d059832e4cb3
 42	2347	1773286153511947339	lib/libcamera2opencv/metadataprinter/CMakeFiles/printdata.dir/printdata.cpp.o	6497d85794f8959a
 2	2406	1773286153470923111	lib/libcamera2opencv/CMakeFiles/cam2opencv.dir/libcam2opencv.cpp.o	b7c0c69c7fa3d585
 2406	2445	1773286155874909350	lib/libcamera2opencv/libcam2opencv.a	6c3a73cd12f22387
 2446	2889	1773286155914909121	lib/libcamera2opencv/metadataprinter/printdata	8174c3798958863c
-4	1338	1773286208968600920	CMakeFiles/stereo_camera.dir/src/stereo_camera.cpp.o	7423d059832e4cb3
 1338	1721	1773286210302593067	stereo_camera	b65d79aceddacebe
+3	1496	1773365975183812143	CMakeFiles/stereo_camera.dir/src/stereo_camera.cpp.o	7423d059832e4cb3
+1496	1974	1773365976676843017	stereo_camera	b65d79aceddacebe
