@@ -522,7 +522,7 @@
       "plot": "gerber/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "DeltaBot.step",
       "svg": "/Users/salehalmulla/Desktop/pcb svg/new/",
       "vrml": ""
     },
