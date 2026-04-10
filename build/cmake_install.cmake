@@ -1,4 +1,4 @@
-# Install script for directory: /home/weinkyls/Documents/epsilonbot
+# Install script for directory: /home/weinkyls/epsilonbot
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
+    set(CMAKE_INSTALL_CONFIG_NAME "RelWithDebInfo")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -29,7 +29,7 @@ endif()
 
 # Install shared libraries without execute permission?
 if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "0")
+  set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
 # Is this installation the result of a crosscompile?
@@ -44,15 +44,15 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/weinkyls/Documents/epsilonbot/build/lib/libcamera2opencv/cmake_install.cmake")
-  include("/home/weinkyls/Documents/epsilonbot/build/lib/c1lidar/cmake_install.cmake")
+  include("/home/weinkyls/epsilonbot/build/lib/libcamera2opencv/cmake_install.cmake")
+  include("/home/weinkyls/epsilonbot/build/lib/c1lidar/cmake_install.cmake")
 
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/weinkyls/Documents/epsilonbot/build/install_local_manifest.txt"
+  file(WRITE "/home/weinkyls/epsilonbot/build/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -68,6 +68,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/weinkyls/Documents/epsilonbot/build/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/home/weinkyls/epsilonbot/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

@@ -1,4 +1,4 @@
-# Install script for directory: /home/weinkyls/Documents/epsilonbot/lib/c1lidar
+# Install script for directory: /home/weinkyls/epsilonbot/lib/c1lidar
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
+    set(CMAKE_INSTALL_CONFIG_NAME "RelWithDebInfo")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -29,7 +29,7 @@ endif()
 
 # Install shared libraries without execute permission?
 if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "0")
+  set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
 # Is this installation the result of a crosscompile?
@@ -43,22 +43,22 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/weinkyls/Documents/epsilonbot/build/lib/c1lidar/libc1lidarrpi.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/weinkyls/epsilonbot/build/lib/c1lidar/libc1lidarrpi.a")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "/home/weinkyls/Documents/epsilonbot/lib/c1lidar/c1lidarrpi.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "/home/weinkyls/epsilonbot/lib/c1lidar/c1lidarrpi.h")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/rplidarsdk" TYPE DIRECTORY FILES "/home/weinkyls/Documents/epsilonbot/lib/c1lidar/rplidarsdk/" FILES_MATCHING REGEX "/[^/]*\\.h$")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/rplidarsdk" TYPE DIRECTORY FILES "/home/weinkyls/epsilonbot/lib/c1lidar/rplidarsdk/" FILES_MATCHING REGEX "/[^/]*\\.h$")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/C1LidarRPI/C1LidarRPIConfig.cmake")
     file(DIFFERENT _cmake_export_file_changed FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/C1LidarRPI/C1LidarRPIConfig.cmake"
-         "/home/weinkyls/Documents/epsilonbot/build/lib/c1lidar/CMakeFiles/Export/a01d98226d6bfb7d60bbc4f70e9f2d1c/C1LidarRPIConfig.cmake")
+         "/home/weinkyls/epsilonbot/build/lib/c1lidar/CMakeFiles/Export/a01d98226d6bfb7d60bbc4f70e9f2d1c/C1LidarRPIConfig.cmake")
     if(_cmake_export_file_changed)
       file(GLOB _cmake_old_config_files "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/C1LidarRPI/C1LidarRPIConfig-*.cmake")
       if(_cmake_old_config_files)
@@ -71,15 +71,15 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     endif()
     unset(_cmake_export_file_changed)
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/C1LidarRPI" TYPE FILE FILES "/home/weinkyls/Documents/epsilonbot/build/lib/c1lidar/CMakeFiles/Export/a01d98226d6bfb7d60bbc4f70e9f2d1c/C1LidarRPIConfig.cmake")
-  if(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/C1LidarRPI" TYPE FILE FILES "/home/weinkyls/Documents/epsilonbot/build/lib/c1lidar/CMakeFiles/Export/a01d98226d6bfb7d60bbc4f70e9f2d1c/C1LidarRPIConfig-debug.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/C1LidarRPI" TYPE FILE FILES "/home/weinkyls/epsilonbot/build/lib/c1lidar/CMakeFiles/Export/a01d98226d6bfb7d60bbc4f70e9f2d1c/C1LidarRPIConfig.cmake")
+  if(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Rr][Ee][Ll][Ww][Ii][Tt][Hh][Dd][Ee][Bb][Ii][Nn][Ff][Oo])$")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/C1LidarRPI" TYPE FILE FILES "/home/weinkyls/epsilonbot/build/lib/c1lidar/CMakeFiles/Export/a01d98226d6bfb7d60bbc4f70e9f2d1c/C1LidarRPIConfig-relwithdebinfo.cmake")
   endif()
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/weinkyls/Documents/epsilonbot/build/lib/c1lidar/install_local_manifest.txt"
+  file(WRITE "/home/weinkyls/epsilonbot/build/lib/c1lidar/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
