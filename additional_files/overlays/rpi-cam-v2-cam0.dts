@@ -1,10 +1,11 @@
 /dts-v1/;
+/plugin/;
 
 / {
 
 	metadata {
 		title = "Enable Raspberry Pi Camera V2";
-		compatible = "radxa,rock-5b";
+		compatible = "radxa,rock-5b-plus";
 		category = "camera";
 		exclusive = "csi2_dphy0";
 		description = "Enable Raspberry Pi Camera V2.";
@@ -27,6 +28,7 @@
 				phandle = <0x0b>;
 			};
 
+      /*
 			external-camera-clock-24m {
 				compatible = "fixed-clock";
 				clock-frequency = <0x16e3600>;
@@ -34,6 +36,7 @@
 				#clock-cells = <0x00>;
 				phandle = <0x02>;
 			};
+      */
 		};
 	};
 
@@ -41,7 +44,9 @@
 		target = <0xffffffff>;
 
 		__overlay__ {
-			status = "okay";
+			#address-cells = <1>;
+      #size-cells = <0>;
+      status = "okay";
 
 			camera-imx219@10 {
 				compatible = "sony,imx219";
@@ -249,7 +254,7 @@
 
 	__symbols__ {
 		camera_pwdn_gpio = "/fragment@0/__overlay__/camera-pwdn-gpio";
-		clk_cam_24m = "/fragment@0/__overlay__/external-camera-clock-24m";
+		// clk_cam_24m = "/fragment@0/__overlay__/external-camera-clock-24m";
 		camera_imx219 = "/fragment@1/__overlay__/camera-imx219@10";
 		imx219_out0 = "/fragment@1/__overlay__/camera-imx219@10/port/endpoint";
 		mipidphy0_in_ucam1 = "/fragment@3/__overlay__/ports/port@0/endpoint@2";
@@ -276,7 +281,7 @@
 		rkisp0_vir0 = "/fragment@11:target:0";
 		pinctrl = "/fragment@12:target:0";
 		pcfg_pull_up = "/fragment@12/__overlay__/camera/cam-pwdn-gpio:rockchip,pins:12";
-    clk_cam_24m = "/fragment@1/__overlay__/camera-imx219@10:clocks:0";
+    xin24m = "/fragment@1/__overlay__/camera-imx219@10:clocks:0";
 	};
 
 	__local_fixups__ {
@@ -296,7 +301,7 @@
 			__overlay__ {
 
 				camera-imx219@10 {
-					clocks = <0x00>;
+					// clocks = <0x00>;
 
 					port {
 

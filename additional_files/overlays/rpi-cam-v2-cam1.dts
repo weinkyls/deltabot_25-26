@@ -244,17 +244,17 @@
 	};
 
 	__symbols__ {
-		camera_pwdn_gpio = "/fragment@0/__overlay__/camera-pwdn-gpio-1";
-		camera_imx219 = "/fragment@1/__overlay__/camera-imx219@10";
-		imx219_out0 = "/fragment@1/__overlay__/camera-imx219@10/port/endpoint";
-		mipidphy2_in_ucam1 = "/fragment@3/__overlay__/ports/port@0/endpoint@2";
-		csidphy2_out = "/fragment@3/__overlay__/ports/port@1/endpoint@0";
-		mipi3_csi2_input = "/fragment@4/__overlay__/ports/port@0/endpoint@1";
-		mipi3_csi2_output = "/fragment@4/__overlay__/ports/port@1/endpoint@0";
-		cif_mipi3_in0 = "/fragment@6/__overlay__/port/endpoint";
-		mipi_lvds3_sditf = "/fragment@7/__overlay__/port/endpoint";
-		isp1_vir0 = "/fragment@11/__overlay__/port/endpoint@0";
-		cam_pwdn_gpio = "/fragment@12/__overlay__/camera/cam-pwdn-gpio-1";
+		camera_pwdn_gpio_1 = "/fragment@0/__overlay__/camera-pwdn-gpio-1";
+    camera-imx219_1 = "/fragment@1/__overlay__/camera-imx219@10";
+    imx219_out0_1 = "/fragment@1/__overlay__/camera-imx219@10/port/endpoint";
+    mipidphy2_in_ucam1_1 = "/fragment@3/__overlay__/ports/port@0/endpoint@2";
+		csidphy2_out_1 = "/fragment@3/__overlay__/ports/port@1/endpoint@0";
+		mipi3_csi2_input_1 = "/fragment@4/__overlay__/ports/port@0/endpoint@1";
+		mipi3_csi2_output_1 = "/fragment@4/__overlay__/ports/port@1/endpoint@0";
+		cif_mipi3_in0_1 = "/fragment@6/__overlay__/port/endpoint";
+		mipi_lvds3_sditf_1 = "/fragment@7/__overlay__/port/endpoint";
+		isp1_vir0_1 = "/fragment@11/__overlay__/port/endpoint@0";
+		cam_pwdn_gpio_1 = "/fragment@12/__overlay__/camera/cam-pwdn-gpio-1";
 	};
 
 	__fixups__ {
