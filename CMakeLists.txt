@@ -14,43 +14,57 @@ find_package(HDF5 REQUIRED COMPONENTS C)
 
 find_package(PkgConfig)
 
-pkg_check_modules(LIBCAMERA REQUIRED IMPORTED_TARGET libcamera)
+# no longer using libcamera
+# pkg_check_modules(LIBCAMERA REQUIRED IMPORTED_TARGET libcamera)
 
-include_directories(${CMAKE_SOURCE_DIR} ${LIBCAMERA_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
+include_directories(${CMAKE_SOURCE_DIR} ${OpenCV_INCLUDE_DIRS})
 
-add_subdirectory(lib/libcamera2opencv)
+add_subdirectory(lib/opencv-camera-callback)
 add_subdirectory(lib/c1lidar)
-
-# first argument is what the exe will be called, the target
-add_executable(stereo_camera 
-src/stereo_camera.cpp
-)
+add_subdirectory(lib/wheelspeeds)
 
 add_library(motor_library STATIC lib/wheelspeeds/Pwm.cpp)
 
-target_link_libraries(stereo_camera PRIVATE 
-cam2opencv 
-c1lidarrpi
-PkgConfig::LIBCAMERA 
-motor_library
-${OpenCV_LIBS}
-${HDF5_LIBRARIES}
-Threads::Threads
+add_library(epsilonbot SHARED 
+  src/stereo_camera.cpp
+  # src/lidar.cpp 
+  # src/motor.cpp 
+)
+
+# first argument is what the exe will be called, the target
+# Stereo Camera Demo
+add_executable(camera_example examples/camera_example.cpp)
+target_link_libraries(camera_example PRIVATE epsilonbot)
+
+# LiDAR Demo
+# add_executable(lidar_example examples/lidar_example.cpp)
+# target_link_libraries(lidar_example PRIVATE epsilonbot)
+
+# Motor Demo
+# add_executable(motor_example examples/motor_example.cpp)
+# target_link_libraries(motor_example PRIVATE epsilonbot)
+
+target_link_libraries(epsilonbot PUBLIC
+  cam2opencv 
+  c1lidarrpi
+  motor_library
+  ${OpenCV_LIBS}
+  ${HDF5_LIBRARIES}
+  Threads::Threads
 )
 
 # this is for finding path for header files and non-compiled libraries
-target_include_directories(stereo_camera PRIVATE
+target_include_directories(epsilonbot PUBLIC
   ${OpenCV_INCLUDE_DIRS}
   ${CMAKE_CURRENT_LIST_DIR}/include
-  ${CMAKE_CURRENT_LIST_DIR}/lib/libcamera2opencv
+  ${CMAKE_CURRENT_LIST_DIR}/lib/opencv-camera-callback
   ${CMAKE_CURRENT_LIST_DIR}/lib/c1lidar
   ${CMAKE_CURRENT_LIST_DIR}/lib/wheelspeeds
 )
 
-set_target_properties(stereo_camera PROPERTIES
+set_target_properties(epsilonbot PROPERTIES
   POSITION_INDEPENDENT_CODE TRUE
-  )
-
+)
 
 # he was using target based cmake
 # add_executable(printRPM printRPM.cpp)
