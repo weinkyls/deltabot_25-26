@@ -59,13 +59,12 @@ void StereoSystem::stop() {
 
 // internal callback for the left camera thread
 void StereoSystem::leftCallback(const cv::Mat &frame) {
+    // prevent conflict between camera thread and main thread
     std::lock_guard<std::mutex> lock(frameMutex);
-    // clone() allocates new memory, preventing the hardware from 
-    // overwriting our buffer before the CV developer reads it
+    // copy frame since v4l2 will overwrite the buffer
     currentLeftFrame = frame.clone(); 
 }
 
-// internal callback for the right camera thread
 void StereoSystem::rightCallback(const cv::Mat &frame) {
     std::lock_guard<std::mutex> lock(frameMutex);
     currentRightFrame = frame.clone();
