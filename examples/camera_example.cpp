@@ -9,6 +9,8 @@
 #include "stereo_camera.h"
 
 int main(int argc, char *argv[]) {
+    // so i don;t have to run QT_QPA_PLATFORM=linuxfb ./camera_example 
+    qputenv("QT_QPA_PLATFORM", "linuxfb");
     // start qt
     QApplication app(argc, argv);
 
