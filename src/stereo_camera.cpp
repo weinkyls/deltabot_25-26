@@ -21,33 +21,37 @@ StereoSystem::~StereoSystem() {
 bool StereoSystem::start() {
     // configure left Camera (/dev/video22 and subdev2)
     OpenCVparameters paramsLeft;
-    paramsLeft.deviceID = 22; // was video0
+    paramsLeft.deviceID = 23; // was video0, using self path
     paramsLeft.fourcc = cv::VideoWriter::fourcc('G', 'R', 'E', 'Y');
     paramsLeft.framerate = 10;
 
+    
     std::vector<V4LParameter> v4lLeft = {
         {"/dev/v4l-subdev2", V4L2_CID_GAIN, 0.5},
         {"/dev/v4l-subdev2", V4L2_CID_HFLIP, 1},
         {"/dev/v4l-subdev2", V4L2_CID_VFLIP, 1}
     };
+    
 
     // configure right Camera (/dev/video31 and subdev7)
     OpenCVparameters paramsRight;
-    paramsRight.deviceID = 31; // was video11
+    paramsRight.deviceID = 32; // was video11
     paramsRight.fourcc = cv::VideoWriter::fourcc('G', 'R', 'E', 'Y');
     paramsRight.framerate = 10;
 
+    
     std::vector<V4LParameter> v4lRight = {
         {"/dev/v4l-subdev7", V4L2_CID_GAIN, 0.5},
         {"/dev/v4l-subdev7", V4L2_CID_HFLIP, 1},
         {"/dev/v4l-subdev7", V4L2_CID_VFLIP, 1}
     };
+    
 
     // Start both hardware streams
     std::cout << "initialising cameras" << std::endl;
     leftCamera.start(paramsLeft, v4lLeft);
     rightCamera.start(paramsRight, v4lRight);
-
+    
     return true;
 }
 

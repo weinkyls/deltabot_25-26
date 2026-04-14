@@ -47,6 +47,7 @@ int main(int argc, char *argv[]) {
 
     while (bigWindow.isVisible()) {
         if (stereo.getLatestFrames(leftFrame, rightFrame)) {
+          std::cout << "frames recieved. size: " << leftFrame.cols << "*" << leftFrame.rows << std::endl;
             // use arrow bc leftWindow is a pointer
             leftWindow->updateImage(leftFrame);
             rightWindow->updateImage(rightFrame);
