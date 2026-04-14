@@ -11,6 +11,7 @@ set(CMAKE_CXX_STANDARD 17)
 find_package(Threads REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(HDF5 REQUIRED COMPONENTS C)
+find_package(Qt6 COMPONENTS Widgets REQUIRED)
 
 find_package(PkgConfig)
 
@@ -34,7 +35,7 @@ add_library(epsilonbot SHARED
 # first argument is what the exe will be called, the target
 # Stereo Camera Demo
 add_executable(camera_example examples/camera_example.cpp)
-target_link_libraries(camera_example PRIVATE epsilonbot)
+target_link_libraries(camera_example PRIVATE epsilonbot Qt6::Widgets)
 
 # LiDAR Demo
 # add_executable(lidar_example examples/lidar_example.cpp)
@@ -45,12 +46,15 @@ target_link_libraries(camera_example PRIVATE epsilonbot)
 # target_link_libraries(motor_example PRIVATE epsilonbot)
 
 target_link_libraries(epsilonbot PUBLIC
-  cam2opencv 
+  # this is what the cmakelists of these libraries call their library targets
+  opencv_callback
   c1lidarrpi
   motor_library
+  # these are big libraries that are not in the lib folder, found via find_package
   ${OpenCV_LIBS}
   ${HDF5_LIBRARIES}
   Threads::Threads
+  Qt6::Widgets
 )
 
 # this is for finding path for header files and non-compiled libraries

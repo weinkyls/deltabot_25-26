@@ -1,9 +1,17 @@
-#include "stereo_camera.h"
+#include <QApplication>
+#include <QWidget>
+// #include <QHBoxLayout> // in window.h
 #include <iostream>
-#include <chrono>
 #include <thread>
+#include <chrono>
+#include "window.h"
 
-int main() {
+#include "stereo_camera.h"
+
+int main(int argc, char *argv[]) {
+    // start qt
+    QApplication app(argc, argv);
+
     std::cout << "stereo camera test" << std::endl;
 
     StereoSystem stereo;
@@ -15,18 +23,31 @@ int main() {
 
     cv::Mat leftFrame, rightFrame;
 
-    std::cout << "press 'esc' to exit the video feed" << std::endl;
+    // big window to show left and right camera feeds
+    QWidget bigWindow;
+    QHBoxLayout *bigLayout = new QHBoxLayout(&bigWindow);
+
+    // create left and right windows
+    Window *leftWindow = new Window();
+    Window *rightWindow = new Window();
+
+    // add left and right window to big window
+    bigLayout->addWidget(leftWindow);
+    bigLayout->addWidget(rightWindow);
+
+    bigWindow.show();
 
     while (true) {
         if (stereo.getLatestFrames(leftFrame, rightFrame)) {
-            cv::imshow("left camera preview", leftFrame);
-            cv::imshow("right camera preview", rightFrame);
+            // use arrow bc leftWindow is a pointer
+            leftWindow->updateImage(leftFrame);
+            rightWindow->updateImage(rightFrame);
         }
 
-        // if escape key is pressed
-        if (cv::waitKey(1) == 27) {
-            break;
-        }
+        app.processEvents();
+
+        // sleep to avoid tight polling loop
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }
     return 0;
 }
