@@ -19,9 +19,9 @@ StereoSystem::~StereoSystem() {
 }
 
 bool StereoSystem::start() {
-    // configure left Camera (/dev/video0 and subdev2)
+    // configure left Camera (/dev/video22 and subdev2)
     OpenCVparameters paramsLeft;
-    paramsLeft.deviceID = 0;
+    paramsLeft.deviceID = 22; // was video0
     paramsLeft.fourcc = cv::VideoWriter::fourcc('G', 'R', 'E', 'Y');
     paramsLeft.framerate = 10;
 
@@ -31,9 +31,9 @@ bool StereoSystem::start() {
         {"/dev/v4l-subdev2", V4L2_CID_VFLIP, 1}
     };
 
-    // configure right Camera (/dev/video11 and subdev7)
+    // configure right Camera (/dev/video31 and subdev7)
     OpenCVparameters paramsRight;
-    paramsRight.deviceID = 11;
+    paramsRight.deviceID = 31; // was video11
     paramsRight.fourcc = cv::VideoWriter::fourcc('G', 'R', 'E', 'Y');
     paramsRight.framerate = 10;
 
