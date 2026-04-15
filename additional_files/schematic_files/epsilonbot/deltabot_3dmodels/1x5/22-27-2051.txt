@@ -1,0 +1,13 @@
+﻿"Symbol";"Value";"Unit";
+"TraceParts.PartNumber";"10-07112019-015525";"";
+"REFERENCE";"22-27-2051";"";
+"rs_stock_number";"4838499";"";
+"TraceParts.PartTitle";"Molex KK 254 6410, 5 Way, 1 Row, Straight PCB Header";"";
+"SUPPLIER_NAME";"RS Components";"";
+"Buy_Now";"https://uk.rs-online.com/web/p/products/4838499?cm_mmc=en-ds-_-mcad-_-traceparts-_-4838499'";"";
+"SUPPLIER";"Molex";"";
+"DESIGN";"Molex KK 254 6410, 5 Way, 1 Row, Straight PCB Header";"";
+"TraceParts.InstanceId";"10-07112019-015525DZ0XIBGZ4N2AZLN4CIGOBR0TZ";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"TraceParts.PartLanguage";"en";"";
+"TraceParts.PartVersion";"1.0.6";"";

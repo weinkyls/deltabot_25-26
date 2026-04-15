@@ -1,0 +1,92 @@
+23057073523462
+deltabot
+BUCK_CONV
+
+
+0
+4
+4
+deltabot
+C1 LiDAR
+
+
+0
+5
+5
+deltabot
+CP_Radial_D12.5mm_P5.00mm
+CP, Radial series, Radial, pin pitch=5.00mm, , diameter=12.5mm, Electrolytic Capacitor
+CP Radial series Radial pin pitch 5.00mm  diameter 12.5mm Electrolytic Capacitor
+0
+2
+2
+deltabot
+C_Disc_D3.0mm_W2.0mm_P2.50mm
+C, Disc series, Radial, pin pitch=2.50mm, , diameter*width=3*2mm^2, Capacitor
+C Disc series Radial pin pitch 2.50mm  diameter 3mm width 2mm Capacitor
+0
+2
+2
+deltabot
+D_DO-41_SOD81_P10.16mm_Horizontal
+Diode, DO-41_SOD81 series, Axial, Horizontal, pin pitch=10.16mm, , length*diameter=5.2*2.7mm^2, , http://www.diodes.com/_files/packages/DO-41%20(Plastic).pdf
+Diode DO-41_SOD81 series Axial Horizontal pin pitch 10.16mm  length 5.2mm diameter 2.7mm
+0
+2
+2
+deltabot
+Fuseholder_Cylinder-5x20mm_Schurter_0031_8201_Horizontal_Open
+Fuseholder horizontal open, 5x20mm, 500V, 16A, Schurter 0031.8201, https://us.schurter.com/bundles/snceschurter/epim/_ProdPool_/newDS/en/typ_OGN.pdf
+Fuseholder horizontal open 5x20 Schurter 0031.8201
+0
+2
+2
+deltabot
+PinHeader_1x03_P2.54mm_Vertical
+Through hole straight pin header, 1x03, 2.54mm pitch, single row
+Through hole pin header THT 1x03 2.54mm single row
+0
+3
+3
+deltabot
+PinHeader_1x07_P2.54mm_Vertical
+Through hole straight pin header, 1x07, 2.54mm pitch, single row
+Through hole pin header THT 1x07 2.54mm single row
+0
+7
+7
+deltabot
+ROCK_5B
+
+
+0
+40
+40
+deltabot
+SOP50P490X110-10N
+DGS0010A
+Integrated Circuit
+0
+10
+10
+deltabot
+TE_4-1825136-5
+
+
+0
+3
+3
+deltabot
+USB_C
+
+
+0
+4
+2
+deltabot
+USB_PD
+
+
+0
+2
+2

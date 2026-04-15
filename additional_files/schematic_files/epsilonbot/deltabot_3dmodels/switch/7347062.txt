@@ -1,0 +1,16 @@
+﻿"Symbol";"Value";"Unit";
+"SUPPLIER_NAME";"RS Components";"";
+"TraceParts.PartVersion";"1.0.0";"";
+"SUPPLIER";"RS PRO";"";
+"TraceParts.PartStatus";"Published";"";
+"TraceParts.PartNumber";"90-06032024-047724";"";
+"TraceParts.PartLanguage";"en";"";
+"DESIGN";"Toggle switch,SP,on-none-on,solder lug";"";
+"TraceParts.InstanceId";"90-06032024-0477242N3XX9WWY2MK673V115V3T3RA";"";
+"TraceParts.PartTitle";"Toggle switch,SP,on-none-on,solder lug";"";
+"url";"https://uk.rs-online.com/web/p/toggle-switches/7347062//?cm_mmc=aff-_-uk-_-traceparts-_-7347062";"";
+"REFERENCE";"7347062";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"TraceParts.PartStatusId";"";"";
+"rs_stock_number";"7347062";"";
+"TraceParts.ClassPath";"RS_COMPONENTS:90-06032024-047724";"";

@@ -1,6 +1,0 @@
-[submodule "lib/c1lidar"]
-	path = lib/c1lidar
-	url = https://github.com/berndporr/c1lidar.git
-[submodule "lib/libcamera2opencv"]
-	path = lib/libcamera2opencv
-	url = https://github.com/berndporr/libcamera2opencv.git

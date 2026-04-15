@@ -1,0 +1,13 @@
+﻿"Symbol";"Value";"Unit";
+"TraceParts.PartNumber";"90-09092025-075826";"";
+"REFERENCE";"M20-6102045";"";
+"rs_stock_number";"6816794";"";
+"TraceParts.PartTitle";"M20 Connector,Stack,Pc104,D/R,2X20W";"";
+"url";"https://uk.rs-online.com/web/p/pcb-sockets/6816794//?cm_mmc=aff-_-uk-_-traceparts-_-6816794";"";
+"SUPPLIER_NAME";"RS Components";"";
+"SUPPLIER";"HARWIN";"";
+"DESIGN";"M20 Connector,Stack,Pc104,D/R,2X20W";"";
+"TraceParts.InstanceId";"90-09092025-0758262N3XX9WWY2MK673V115V3T3RA";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"TraceParts.PartLanguage";"en";"";
+"TraceParts.PartVersion";"1.0.0";"";
