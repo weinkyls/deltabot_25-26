@@ -22,7 +22,7 @@ bool StereoSystem::start() {
     // configure left Camera (/dev/video22 and subdev2)
     OpenCVparameters paramsLeft;
     paramsLeft.deviceID = 23; // was video0, using self path
-    paramsLeft.fourcc = cv::VideoWriter::fourcc('G', 'R', 'E', 'Y');
+    paramsLeft.fourcc = cv::VideoWriter::fourcc('Y', 'U', 'Y', 'V');
     paramsLeft.framerate = 10;
 
     
@@ -36,7 +36,7 @@ bool StereoSystem::start() {
     // configure right Camera (/dev/video31 and subdev7)
     OpenCVparameters paramsRight;
     paramsRight.deviceID = 32; // was video11
-    paramsRight.fourcc = cv::VideoWriter::fourcc('G', 'R', 'E', 'Y');
+    paramsRight.fourcc = cv::VideoWriter::fourcc('Y', 'U', 'Y', 'V');
     paramsRight.framerate = 10;
 
     
@@ -77,13 +77,18 @@ void StereoSystem::rightCallback(const cv::Mat &frame) {
 bool StereoSystem::getLatestFrames(cv::Mat &leftOut, cv::Mat &rightOut) {
     std::lock_guard<std::mutex> lock(frameMutex);
     
-    // check if the cameras have delivered a frame yet
-    if (currentLeftFrame.empty() || currentRightFrame.empty()) {
+    // check if the cameras have delivered a frame yet, logical and since MIPI cable broken currently
+    if (currentLeftFrame.empty() && currentRightFrame.empty()) {
         return false; 
     }
 
-    currentLeftFrame.copyTo(leftOut);
-    currentRightFrame.copyTo(rightOut);
-    
+    if (!currentLeftFrame.empty()) {
+      currentLeftFrame.copyTo(leftOut);
+    }
+
+    if (!currentRightFrame.empty()) {
+      currentRightFrame.copyTo(rightOut);
+    }
+   
     return true;
 }
